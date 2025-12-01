@@ -68,37 +68,94 @@ body {
 .btn:hover { transform: translateY(-1px); }
 
 /* Kitchen scene (simple illustration) */
-.kitchen-scene { position: relative; min-height: 260px; }
+.kitchen-scene {
+  position: relative;
+  min-height: 320px; /* increased height */
+  background: #fffaf5; /* optional soft background */
+  overflow: hidden;
+}
+
 .counter {
-  position: absolute; bottom: 0; left: 0; right: 0; height: 120px; background: #f3e3d8; border-radius: 16px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: #f3e3d8;
+  border-radius: 16px;
   box-shadow: var(--shadow);
 }
+
 .stand {
-  position: absolute; bottom: 70px; left: 50%; transform: translateX(-50%);
-  width: 200px; height: 140px; background: #ffffff; border-radius: 16px; box-shadow: var(--shadow);
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 140px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  z-index: 1;
 }
+
 .cake-tier {
-  position: absolute; left: 50%; transform: translateX(-50%);
-  width: 160px; height: 40px; background: #ffd9d9; border-radius: 10px; box-shadow: var(--shadow);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 40px;
+  background: #ffd9d9;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
 }
-.tier1 { bottom: 10px; }
+
+.tier1 { bottom: 10px; width: 160px; }
 .tier2 { bottom: 55px; width: 130px; }
 .tier3 { bottom: 95px; width: 100px; }
+
 .cake-topper {
-  position: absolute; bottom: 120px; left: 50%; transform: translateX(-50%);
-  font-size: 20px;
+  position: absolute;
+  bottom: 140px; /* raised above tier3 */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 50px;
+  z-index: 2;
+  animation: sparkle 2s infinite ease-in-out;
 }
+
+@keyframes sparkle {
+  0%, 100% { transform: translateX(-50%) scale(1); opacity: 1; }
+  50% { transform: translateX(-50%) scale(1.2); opacity: 0.8; }
+}
+
 .hanging-lamp {
-  position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
-  width: 80px; height: 80px; background: #f9e6d3; border-radius: 50%; box-shadow: 0 16px 32px rgba(0,0,0,0.06);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  background: #f9e6d3;
+  border-radius: 50%;
+  box-shadow: 0 16px 32px rgba(0,0,0,0.06);
+  z-index: 0;
 }
+
 .steam {
-  position: absolute; bottom: 150px; width: 6px; height: 6px; background: #fbeaea; border-radius: 50%;
+  position: absolute;
+  bottom: 150px;
+  width: 6px;
+  height: 6px;
+  background: #fbeaea;
+  border-radius: 50%;
   animation: float 4s infinite ease-in-out;
+  z-index: 3;
 }
+
 .steam1 { left: 55%; animation-delay: 0s; }
 .steam2 { left: 60%; animation-delay: 0.8s; }
 .steam3 { left: 50%; animation-delay: 1.6s; }
+
 @keyframes float {
   0% { transform: translateY(0); opacity: 0.7; }
   50% { transform: translateY(-20px); opacity: 1; }
